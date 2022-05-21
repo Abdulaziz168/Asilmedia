@@ -1,0 +1,86 @@
+{% extends 'base.html' %} 
+{% load static %}  
+{% load comments
+%} {% block content %}
+
+<br />
+<div class=" text-light">
+  <h2>{{ statusRA.title }}</h2>
+  <div class="row">
+    <div class="col w-100">
+      <img class="w-100" src="{{ movie.image.url }}" alt="{{ movie.image }}" />
+    </div>
+    <div class="col">
+      <p>{{ movie.description }}</p>
+      <p class="text-center text-warning">{{ movie.year_of_production }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      {% if user.is_authenticated %} Hi {{ user.username }}!
+      <video
+      id="my-video"
+      class="video-js"
+      controls="true"
+      preload="auto"
+      width="640"
+      height="264"
+      poster="{{object.image.url}}"
+      data-setup="{}"
+    >
+      <source src="{{object.video_src.url}}" type="video/mp4" />
+      <source src="{{object.video_src.url}}" type="video/webm" />
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a
+        web browser that
+        <a href="https://videojs.com/html5-video-support/" target="_blank"
+          >supports HTML5 video</a
+        >
+      </p>
+    </video>
+      {% else %}
+      <p>You are not logged in</p>
+      <a href="{% url 'login' %}">Log In</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{# COMMENTS#}
+<div class="section text-light">
+  <div class="cards">
+    <h1>Comment (0)</h1>
+
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        {#display comment#} {% for comment in post_comments %}
+        <div class="pb-3 border border-2 border-light">
+          <div class="w-50 d-block">
+            <img
+              class="rounded w-25 mx-auto"
+              src="{% static 'css/images/avatar.png' %}"
+              alt="Avatar"
+            />
+          </div>
+          {{ comment.user }}
+          <p>{{ comment.content }}</p>
+          <p>{{ comment.date }}</p>
+        </div>
+
+        {% endfor %} {#display form#}
+        <div class="col-lg-8 my-2">
+          <form method="POST" action="">
+            {% csrf_token %}
+            <div class="form-group">
+              {{ form }}
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">
+              Comment
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# END COMMENT#} {% endblock %}

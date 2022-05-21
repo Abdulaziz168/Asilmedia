@@ -1,0 +1,385 @@
+{% extends 'base.html' %} {% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Document</title>
+    <link rel="stylesheet" href="{%static 'css/latestcard.css'%}" />
+  </head>
+  <body>
+  {%block content %}
+      <div id="content w-100">
+        <div class="box row">
+          <div class="head">
+            <h2>LATEST ADDED</h2>
+            <p class="text-right">
+              <a href="{% url 'latestadded' %}">See all</a>
+            </p>
+          </div>
+          <div class="row d-flex">
+            {% for movie in statusRA %}
+            <div class="card mx-2"-->
+              style="width: 15rem; background-color: indigo;">
+              <img
+                src="{{movie.image.url}}"
+                class="card-img-top w-75 mx-auto"
+                alt="..."
+              />
+              <div class="card-body w-100 bg-danger rounded">
+                <h5 class="card-title text-dark">{{movie.title}}</h5>
+                <p class="card-text text-dark">
+                  {{movie.description |slice:":50"}}..
+                </p>
+
+                <div class="card-body mx-auto w-100">
+                  <a
+                    href="{% url 'detail_list' movie.pk %}"
+                    class="card-link btn btn-secondary"
+                  >
+                    Watch movie
+                  </a>
+                </div>
+              </div>
+            </div>
+
+              <h4>Movie Details</h4>
+              <div class="img">
+                <button>Dock</button>
+              </div>
+              <h4>Jumanji</h4>
+              <div class="rating">
+                <svg
+                        height="511pt"
+                        viewBox="0 -10 511.98685 511"
+                        width="511pt"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                          d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"
+                          fill="#ffc107"
+                  />
+                </svg>
+                <svg
+                        height="511pt"
+                        viewBox="0 -10 511.98685 511"
+                        width="511pt"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                          d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"
+                          fill="#ffc107"
+                  />
+                </svg>
+                <svg
+                        height="511pt"
+                        viewBox="0 -10 511.98685 511"
+                        width="511pt"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                          d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"
+                          fill="#ffc107"
+                  />
+                </svg>
+                <svg
+                        height="511pt"
+                        viewBox="0 -10 511.98685 511"
+                        width="511pt"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                          d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"
+                          fill="#ffc107"
+                  />
+                </svg>
+                <div class="last">
+                  <svg
+                          height="511pt"
+                          viewBox="0 -10 511.98685 511"
+                          width="511pt"
+                          xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                            d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"
+                            fill="#ffc107"
+                    />
+                  </svg>
+
+                  <div class="for">
+                    <div class="infos">
+                      <p>
+                        Initial release :
+                        <span>December 4, 2019 (France)</span>
+                      </p>
+
+                      <p>
+                        Director :
+                        <span>Jake Kasdan</span>
+                      </p>
+
+                      <p>
+                        Budget :
+                        <span>$125–142 million</span>
+                      </p>
+
+                      <p>
+                        Box office :
+                        <span>754.8 million USD</span>
+                      </p>
+
+                      <p>
+                        Producers :
+                        <span>
+              Dwayne Johnson, Jake Kasdan, Dany Garcia, Hiram Garcia, William
+              Teitler, Matt Tolmach
+            </span>
+                      </p>
+                    </div>
+
+                    <!-- </div> -->
+                  </div>
+                </div>
+              </div>
+              <p>
+                When Spencer goes back into the fantastical world of Jumanji, pals Martha,
+                Fridge and Bethany re-enter the game to bring him home. But the game is now
+                broken -- and fighting back.
+              </p>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="cl">&nbsp;</div>
+        </div>
+        <div class="box">
+          <div class="head">
+            <h2>TOP RATED</h2>
+            <p class="text-right"><a href="{%url 'top_rated' %}">See all</a></p>
+          </div>
+          <div class="row">
+            {% for tp in statusTR %}
+            <div
+              class="card mx-2"
+              style="width: 15rem; background-color: indigo;"
+            >
+              <img
+                src="{{tp.image.url}}"
+                class="card-img-top w-75 mx-auto"
+                alt="..."
+              />
+              <div class="card-body w-100 bg-danger rounded">
+                <h5 class="card-title text-dark">{{tp.title}}</h5>
+                <p class="card-text text-dark">
+                  {{tp.description |slice:":50"}}..
+                </p>
+
+                <div class="card-body mx-auto w-100">
+                  <a
+                    href="{% url 'detail_list' tp.pk %}"
+                    class="card-link btn btn-secondary"
+                  >
+                    Watch movie
+                  </a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
+          <div class="cl">&nbsp;</div>
+        </div>
+        <div class="box">
+          <div class="head">
+            <h2>MOST WATCHED</h2>
+            <p class="text-right">
+              <a href="{%url 'most_watched' %}">See all</a>
+            </p>
+          </div>
+          <div class="row">
+            {% for mw in statusMW %}
+            <div
+              class="card mx-2"
+              style="width: 15rem; background-color: indigo;"
+            >
+              <img
+                src="{{mw.image.url}}"
+                class="card-img-top w-75 mx-auto"
+                alt="..."
+              />
+              <div class="card-body w-100 bg-danger rounded">
+                <h5 class="card-title text-dark">{{mw.title}}</h5>
+                <p class="card-text text-dark">
+                  {{mw.description |slice:":50"}}..
+                </p>
+
+                <div class="card-body mx-auto w-100">
+                  <a
+                    href="{% url 'detail_list' mw.pk %}"
+                    class="card-link btn btn-secondary"
+                  >
+                    Watch movie
+                  </a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
+          <div class="cl">&nbsp;</div>
+        </div>
+      </div>
+      <div class="cl">&nbsp;</div>
+    </div>
+  {%endblock %}
+
+
+  <style>
+
+    .cards {
+      width: 300px;
+      height: 400px;
+      background: linear-gradient(45deg, #111, #252525, #111, #252525);
+      border-radius: 15px;
+      position: relative;
+      box-shadow: 0 0 2px #e97101;
+      display: none;
+    }
+
+    .img {
+      width: 200px;
+      height: 250px;
+      background: no-repeat;
+      margin: 0 auto 20px;
+      background-color: tomato;
+      border-radius: 8px;
+      background: url('https://fr.web.img6.acsta.net/pictures/17/11/07/13/40/0517792.jpg');
+      position: relative;
+      box-shadow: 0 0 10px 3px #e97101;
+      background-size: contain;
+    }
+
+
+
+
+    .img button {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background-color: rgb(0, 84, 202);
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 15px;
+    }
+
+    .img button:hover {
+      background-color: rgb(7, 110, 255);
+      cursor: pointer;
+    }
+
+    .cards > h2, .cards > p {
+      text-align: center;
+      margin: 0;
+    }
+
+    h4 {
+      text-transform: uppercase;
+    }
+
+    .rating {
+      width: fit-content;
+      margin: 0 auto;
+      text-align: center;
+      margin: 10px 0 15px;
+      position: relative;
+    }
+
+    .rating svg {
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+
+    .last {
+      display: inline-block;
+      position: relative;
+    }
+
+    .last:hover .infos {
+      display: block;
+    }
+
+    .last svg path {
+      fill: #aaa;
+    }
+
+    p {
+      font-size: 0.8em;
+    }
+
+    .next {
+      width: 20px;
+      height: 20px;
+      background-color: #aaa;
+      border-radius: 10px;
+      text-align: center;
+      margin: 10px;
+    }
+
+    .next:hover {
+      background-color: #888;
+      cursor: pointer;
+    }
+
+    .next svg {
+      width: 10px;
+      height: 10px;
+      margin: auto;
+      transform: rotate(180deg);
+    }
+
+    .infos {
+      background-color: #101020;
+      border-radius: 10px;
+      position: absolute;
+      padding: 10px;
+      top: 20px;
+      text-align: left;
+      cursor: pointer;
+      left: -10px;
+      width: 300px;
+      box-shadow: 0 0 2px 1px #aaa;
+      display: none;
+    }
+
+    .infos p {
+      display: inline-block;
+      margin: 2px;
+      font-size: 1em;
+    }
+
+    .infos span {
+      font-size: .8em;
+      color: #8080d8;
+    }
+
+    .infos::before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background-color: #101020;
+      position: absolute;
+      top: -8px;
+      left: 8px;
+      transform: rotate(45deg);
+    }
+
+
+  </style>
+    <script src="{%static 'js/index.js' %}"></script>
+  </body>
+</html>

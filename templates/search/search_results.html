@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<h1>Search Results</h1>
+
+<div class="cards">
+  <div class="row justify-content-center">
+    {% for movie in object_list %} {% comment %} Product Card{% endcomment %}
+
+    <div class="product-card col-md-auto w-25" style="height: auto;">
+      <div class="product-tumb">
+        <img src="{{ movie.image.url }}" alt="" class="w-100" />
+      </div>
+      <div class="product-details">
+        <span class="product-catagory"></span>
+        <h4><a href="">{{movie.title}}</a></h4>
+        <p>{{movie.description |slice:"200"}} ...</p>
+        <button type="button" class="btn btn-primary col-md-auto">
+          <a href="{%url 'movie_list' %}{{movie.pk}}  ">Watch It</a>
+        </button>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
