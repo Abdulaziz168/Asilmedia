@@ -67,28 +67,28 @@ class SearchResultsView(ListView):
 
 
 
-def latest_added(request):
+def horijiy_kinolar(request):
     statusRA = Movie.objects.filter(status='RA')
     context = {
         'ra':statusRA,
         }
-    return render (request,'site_pages/latest_added.html',context)
+    return render (request,'site_pages/horijiy_kinolar.html',context)
 
 
-def most_watched(request):
+def milliy_filmlar(request):
     statusMW = Movie.objects.filter(status='MW')
     context = {
         'mw':statusMW,
         }
-    return render (request,'site_pages/most_watched.html',context)
+    return render (request,'site_pages/milliy_filmlar.html',context)
 
 
-def top_rated(request):
+def multfilmla(request):
     statusTR = Movie.objects.filter(status='TR')
     context = {
         'tr':statusTR,
         }
-    return render (request,'site_pages/top_rated.html',context)
+    return render (request,'site_pages/multfilmla.html',context)
 
 
 def insta(request):

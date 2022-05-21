@@ -1,0 +1,21 @@
+{%extends 'base.html' %} {%block content %}
+<div class="col-lg-12 my-5">
+  <div class="box row bg-dark justify-content-center w-100 m-0">
+    {% for movie in ra %}
+    <div class="card m-2 " style="width: 30rem;">
+      <img src="{{ movie.image.url }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h2 class="card-title ">{{ movie.title }}</h2>
+        <p class="card-text">{{ movie.description|slice:"150" }}...</p>
+      </div>
+      <div class="card-body">
+        <a href="{{movie.pk}}" class="card-link">Watch It</a>
+      </div>
+    </div>
+    {% endfor %}
+    <br />
+    <div class="cl">&nbsp;</div>
+
+    {%endblock %}
+  </div>
+</div>

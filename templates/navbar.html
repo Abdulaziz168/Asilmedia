@@ -1,6 +1,6 @@
 {%load static%}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary sticky">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
     <button
@@ -26,13 +26,17 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Latest added</a>
+          <a class="nav-link text-right" href="{%url 'horijiy_kinolar' %}">
+            Horijiy kinolar
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Most watched</a>
+          <a class="nav-link" href="{%url 'milliy_filmlar' %}">
+            Milliy filmlar
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Top Rated</a>
+          <a class="nav-link" href="{%url 'multfilmla' %}">Multfilmlar</a>
         </li>
       </ul>
       <form class="d-flex">
@@ -47,11 +51,27 @@
     </div>
     <div>
       {% if user.is_authenticated %}
-      <img
-        src="{%static 'css\images\avatar.png' %}"
-        alt="Avatar"
-        class="avatar"
-      />
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="{%static 'css\images\avatar.png' %}"
+            alt="Avatar"
+            class="avatar"
+          />
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Username</a></li>
+          <li><a class="dropdown-item" href="#">UserId</a></li>
+          <li><a class="dropdown-item" href="#">Some Info</a></li>
+        </ul>
+      </div>
+
       {%else %} no {%endif %}
     </div>
   </div>
